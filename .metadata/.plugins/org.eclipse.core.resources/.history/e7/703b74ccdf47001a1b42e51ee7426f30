@@ -1,0 +1,15 @@
+package com.sapient.lms.service;
+
+public class LeaveManager {
+	public void applyForLeave(int numberOfLeaves) {
+		
+	}
+	
+	public int viewLeaveBalance() {
+		return 0;
+	}
+	
+	public void updateLeaveBalance(int numberOfLeaves) {
+		
+	}
+}

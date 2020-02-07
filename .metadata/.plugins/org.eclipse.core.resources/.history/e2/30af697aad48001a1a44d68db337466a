@@ -1,0 +1,16 @@
+package com.sapient.lms.model;
+
+public class LeaveDetails {
+	private int leaves;
+	
+	public LeaveDetails() {
+		this.leaves = 20;
+	}
+	public int getNumberofleaves() {
+		return leaves; 
+	}
+
+	public void setNumberofleaves(int leaves) {
+		this.leaves = this.leaves + leaves;
+	}
+}

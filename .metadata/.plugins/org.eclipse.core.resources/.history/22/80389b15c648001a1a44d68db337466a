@@ -1,0 +1,26 @@
+package com.sapient.io;
+
+import java.io.*;
+public class BufferedReaderWriter {
+	public static void main(String[] args) throws IOException{
+		File file = new File("C:\\Users\\digpanda\\Desktop\\text.txt");
+		
+		try (BufferedReader bufferedReader = new BufferedReader(new FileReader(File))) {
+			String line = bufferedReader.readLine();
+			while(line != null) {
+				System.out.println(line);
+				line = bufferedReader.readLine();
+			}
+		} catch(FileNotFoundException e) {
+			System.out.println("File is not present "+ file.getName());
+			e.printStackTrace();
+		} finally {
+			try {
+				bufferedReader.close();
+			} catch (IOException e) {
+				System.out.printf("File Reader cannot be closed "+ e.getMessage());
+			}
+		}
+	}
+}
+ 

@@ -1,0 +1,14 @@
+package com.sapient.date;
+
+import java.util.Date;
+
+public class DateDemo {
+	public static void main(String[] args) {
+		Date currentDate = new Date();
+		
+		System.out.println(currentDate.getDate());
+		System.out.println(currentDate.getMonth());
+		System.out.println(currentDate.getDay());
+		System.out.println("Date >> " +currentDate);
+	}
+}

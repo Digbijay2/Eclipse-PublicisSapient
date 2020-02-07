@@ -1,0 +1,12 @@
+package com.sapient.exceptions;
+
+public class UncheckedExceptionDemo {
+	public static void main(String[] args) {
+		int[] array = {34,45,43,21};
+		System.out.println("The fifth element of the array is "+array[5]);
+		array = null;
+		System.out.println("The fifth element of the array is "+array[1]);
+	}
+	
+	 
+}

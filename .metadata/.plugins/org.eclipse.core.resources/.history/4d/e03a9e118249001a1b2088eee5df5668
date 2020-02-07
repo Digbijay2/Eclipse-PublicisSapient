@@ -1,0 +1,40 @@
+package com.sapient.lmsdb.model;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.sapient.lmsdb.service.Manager;
+
+public class LeaveDetails {
+	
+	private int leaves;
+	
+	public LeaveDetails(int empid) throws SQLException { 
+//		this.leaves = 20;
+		Connection connection = Manager.getconnection();
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery("select leaveBalance from employee where id ="+empid);
+		int leaves = resultSet.getInt("leaveBalance");
+		
+		this.leaves = leaves;
+		
+		statement.close();
+		connection.close();
+	}
+
+	public int getLeaves() {
+		return leaves;
+	}
+
+	public void updateLeaves(int leaves) {
+		this.leaves = this.leaves + leaves;
+	}
+	
+	public void setLeaves(int leaves) {
+		this.leaves = leaves;
+	}
+	
+
+}

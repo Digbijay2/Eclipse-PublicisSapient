@@ -1,0 +1,53 @@
+package com.sapient.lms.client;
+
+import java.util.Scanner;
+
+import com.sapient.lms.model.Employee;
+import com.sapient.lms.service.LeaveManager;
+
+public class LeaveManagerClient {
+	
+	public static void main(String[] args) {
+		Employee E1 = new Employee(11,"Vinay", "HR");
+		Employee E2 = new Employee(12,"Kiran", "PAYROLL");
+		Employee E3 = new Employee(13,"Amit", "EXPENSE");
+		
+		LeaveManager L = new LeaveManager();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter Employee id :");
+		int empid = sc.nextInt();
+		
+		Employee E = null;
+		foreach(Employee)
+		
+		System.out.println("choose any..");
+		System.out.println("1. view leave balance");
+		System.out.println("2. apply for leave");
+		System.out.println("3. update leave");
+		
+		int ch = sc.nextInt();
+		switch(ch) {
+		case 1:  	L.viewLeaveBalance(E);
+					break;
+		case 2:		System.out.println("enter number of days");
+					int numberofdays = sc.nextInt();
+					L.applyForLeave(E, numberofdays);
+					break;
+		
+		case 3:		System.out.println("enter number of days to update");
+					int daystoupdate = sc.nextInt();
+					L.updateLeaves(E, daystoupdate);
+					break;
+		default:    System.out.println("enter any of these options..");
+		}
+		
+		
+		
+		
+	}
+
+	
+
+}

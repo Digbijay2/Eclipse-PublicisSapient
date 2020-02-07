@@ -1,0 +1,60 @@
+package com.sapient.lmsdb.client;
+
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import com.sapient.lmsdb.service.Manager;
+import com.sapient.lmsdb.exception.InsufficientLeaveBalanceException;
+import com.sapient.lmsdb.model.Employee;
+import com.sapient.lmsdb.service.Manager;
+
+public class Client {
+	public static void main(String[] args) throws SQLException {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter id:");
+		int empid = sc.nextInt();
+		
+		Employee E = new Employee(empid);
+		Manager L = new Manager();
+		
+		int i = 0;
+		while(i==0) {
+	
+		System.out.println("choose any..");
+		System.out.println("1. view leave balance");
+		System.out.println("2. apply for leave");
+		System.out.println("3. update leave");
+		System.out.println("4. Exit");
+		
+		int ch = sc.nextInt();
+		switch(ch) {
+		case 1:  	System.out.println(L.viewLeaveBalance(E));
+					break;
+		case 2:		System.out.println("enter number of days");
+					int numberofdays = sc.nextInt();
+			try {
+				System.out.println(L.applyForLeave(E, numberofdays));
+			} catch (InsufficientLeaveBalanceException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+					break;
+		
+		case 3:		System.out.println("enter number of days to update");
+					int daystoupdate = sc.nextInt();
+					L.updateLeaves(E, daystoupdate);
+					break;
+					
+		case 4:		i = 1; 
+					System.exit(0); break;
+		
+		default:    System.out.println("enter any of these options..");
+					break;
+		}
+	  }
+		
+		sc.close();
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.sapient.lmsdb.client;
+
+import java.util.Scanner;
+
+import com.sapient.lmsdb.model.Employee;
+
+public class Client {
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter id:");
+		int empid = sc.nextInt();
+		System.out.println("Enter name:");
+		String empname = sc.next();
+		System.out.println("Enter department:");
+		String dept = sc.next();
+		
+		Employee employee = new Employee(empid,empname,dept);
+		
+		sc.close();
+	}
+
+}

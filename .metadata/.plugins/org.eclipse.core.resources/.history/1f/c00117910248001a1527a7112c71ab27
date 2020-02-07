@@ -1,0 +1,25 @@
+package com.sapient.collections;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class ToStringDemo {
+	public static void main(String[] args) {
+		User user1 = new User(1, "Kishan");
+		User user2 = new User(2, "Mayank");
+		
+		Set<User> set = new HashSet<> ();
+		set.add(user1);
+		set.add(user2);
+		System.out.println(set);
+	}
+}
+
+class User{
+	int id;
+	String name;
+	public User(int id, String name) {
+		this.id = id;
+		this.name = name;
+	}
+}

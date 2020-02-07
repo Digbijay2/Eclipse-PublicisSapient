@@ -1,0 +1,5 @@
+package com.sapient.lms.service;
+
+public class LeaveManager {
+
+}

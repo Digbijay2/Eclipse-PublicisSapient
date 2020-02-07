@@ -1,0 +1,5 @@
+package com.sapient.lms.model;
+
+public class LeaveDetails {
+	private int numberofleaves = 20;
+}

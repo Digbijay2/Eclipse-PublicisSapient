@@ -1,0 +1,5 @@
+package com.sapient.lms.exception;
+
+public class InsufficientLeaveBalance {
+
+}

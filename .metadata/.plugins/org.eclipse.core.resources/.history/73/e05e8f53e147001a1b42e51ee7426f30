@@ -1,0 +1,10 @@
+package com.sapient.lms.client;
+
+
+public class LeaveManagerClient {
+	LeaveDetails L1 = new LeaveDetails();
+	LeaveDetails L2 = new LeaveDetails();
+	
+	Employee E1 = new Employee();
+	Employee E2 = new Employee();
+}

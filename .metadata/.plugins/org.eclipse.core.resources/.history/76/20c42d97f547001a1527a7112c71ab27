@@ -1,0 +1,17 @@
+package com.sapient.lms.service;
+
+public class LeaveManager{
+	private int numberOfLeaves = getNumberofleaves();
+	
+	public int applyForLeave(Employee employee, int numberOfDays) {
+		return 0;
+	}
+	
+	public int viewLeaveBalance(Employee employee) {
+		employee.getLeaveDetails().getLeaves();
+	}
+	
+	public void updateLeaveBalance(Employee employee, int numberOfLeaves) {
+		employee.getLeaveDetails().updateLeaves(numberOfDays);
+	}
+}

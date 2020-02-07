@@ -1,0 +1,10 @@
+package com.sapient.lms.model;
+
+public class Employee {
+	public Employee() {
+		int Empid;
+		String Empname;
+		String Dept;
+	}
+	LeaveDetails leavedetail = new LeaveDetails();
+}

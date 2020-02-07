@@ -1,0 +1,58 @@
+package com.sapient.lmsdb.service;
+
+import com.sapient.lmsdb.exception.InsufficientLeaveBalanceException;
+import com.sapient.lmsdb.model.Employee;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class Manager {
+
+	public static Connection getconnection() {
+		Connection connection = null;
+		try {
+			connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/LMS", "root", "1234@1234");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return connection;
+	}
+
+	public int applyForLeave(Employee employee, int numberOfDays) throws InsufficientLeaveBalanceException {
+
+		// Connection connection = Manager.getconnection();
+		int availableLeaves = employee.getLeaveDetails().getLeaves();
+		if (availableLeaves < numberOfDays) {
+			throw new InsufficientLeaveBalanceException("Insufficient leave balance");
+		} else {
+			availableLeaves = availableLeaves - numberOfDays;
+			employee.getLeaveDetails().setLeaves(availableLeaves);
+		}
+		return numberOfDays;
+	}
+
+	public int viewLeaveBalance(Employee employee) {
+		try {
+		Connection connection = Manager.getconnection();
+		Statement statement = connection.createStatement();
+		ResultSet resultSet = statement.executeQuery("select leaveBalance from employee where id =" + employee.empId);
+
+		int leaves = 0;
+		while (resultSet.next()) {
+			leaves = resultSet.getInt("leaveBalance");
+		
+
+		statement.close();
+		connection.close();
+		
+		return leaves;
+	}
+
+	public void updateLeaves(Employee employee, int numberOfDays) {
+		employee.getLeaveDetails().updateLeaves(numberOfDays);
+
+	}
+
+}

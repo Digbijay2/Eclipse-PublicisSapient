@@ -1,0 +1,5 @@
+package com.sapient.lmsdb.client;
+
+public class Client {
+
+}

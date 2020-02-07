@@ -1,0 +1,37 @@
+package com.sapient.lms.service;
+
+import com.sapient.lms.exception.InsufficientLeaveBalanceException;
+import com.sapient.lms.model.Employee;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class LeaveManager {
+
+		
+ public int applyForLeave(Employee employee, int numberOfDays) throws InsufficientLeaveBalanceException {
+	 int availableLeaves = employee.getLeaveDetails().getLeaves();
+	 if (availableLeaves < numberOfDays) {
+		 throw new InsufficientLeaveBalanceException("Insufficient leave balance");
+	 } else {
+		 availableLeaves = availableLeaves - numberOfDays;
+		 employee.getLeaveDetails().setLeaves(availableLeaves);
+	 }
+	 return numberOfDays;
+ }
+ 
+ public int viewLeaveBalance(Employee employee) {
+	return  employee.getLeaveDetails().getLeaves();
+ }
+ 
+ public void updateLeaves(Employee employee, int numberOfDays) {
+	 employee.getLeaveDetails().updateLeaves(numberOfDays);
+	
+ }
+ 
+ 
+ 
+ 
+
+}

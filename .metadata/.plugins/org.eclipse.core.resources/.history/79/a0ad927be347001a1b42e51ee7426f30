@@ -1,0 +1,19 @@
+package com.sapient.lms.service;
+
+import com.sapient.lms.model.*;
+
+public class LeaveManager extends LeaveDetails{
+	private int numberOfLeaves = getNumberofleaves();
+	
+	public void applyForLeave(int numberOfLeaves) {
+		
+	}
+	
+	public int viewLeaveBalance() {
+		return numberOfLeaves;
+	}
+	
+	public void updateLeaveBalance(int numberOfLeaves) {
+		
+	}
+}

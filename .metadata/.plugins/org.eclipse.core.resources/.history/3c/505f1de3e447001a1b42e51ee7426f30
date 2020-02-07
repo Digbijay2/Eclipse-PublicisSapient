@@ -1,0 +1,13 @@
+package com.sapient.lms.model;
+
+public class LeaveDetails extends Employee{
+	private int numberofleaves = 20;
+
+	public int getNumberofleaves() {
+		return numberofleaves; 
+	}
+
+	public void setNumberofleaves(int numberofleaves) {
+		this.numberofleaves = numberofleaves;
+	}
+}
