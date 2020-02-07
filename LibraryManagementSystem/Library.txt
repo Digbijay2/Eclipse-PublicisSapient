@@ -1,0 +1,16 @@
+
+create database Library;
+use Library;
+
+create table library (
+id int unsigned primary key auto_increment,
+name varchar(40) not null,
+bookname varchar(40) not null,
+Balance int unsigned not null
+);
+
+insert into library (name, bookname, Balance) values('Aman', 'Finance', 0);
+insert into library (name, bookname, Balance) values('Sumit', 'HR', 0);
+insert into library (name, bookname, Balance) values('Akash', 'Payroll', 0);
+
+select * from library;

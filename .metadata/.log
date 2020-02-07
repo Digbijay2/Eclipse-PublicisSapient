@@ -1232,3 +1232,35 @@ org.eclipse.recommenders.utils.Logs$LogTraceException
 	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
 	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
 	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.recommenders.types.rcp 1 4 2020-02-07 16:50:33.437
+!MESSAGE Full project indexing required:
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\charsets.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\access-bridge-32.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\cldrdata.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\dnsns.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\jaccess.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\jfxrt.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\localedata.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\nashorn.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\sunec.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\sunjce_provider.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\sunmscapi.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\sunpkcs11.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\ext\zipfs.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\jce.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\jfr.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\jsse.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\resources.jar
+  [+] C:\Program Files (x86)\Java\jre1.8.0_231\lib\rt.jar
+  [+] C:\Users\digpanda\Desktop\mysql-connector-java-8.0.19.jar
+
+!STACK 0
+org.eclipse.recommenders.utils.Logs$LogTraceException
+	at org.eclipse.recommenders.utils.Logs$LogTraceException.newTrace(Logs.java:381)
+	at org.eclipse.recommenders.utils.Logs.log(Logs.java:134)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.needsRebuild(ProjectTypesIndex.java:169)
+	at org.eclipse.recommenders.internal.types.rcp.ProjectTypesIndex.startUp(ProjectTypesIndex.java:122)
+	at com.google.common.util.concurrent.AbstractIdleService$2$1.run(AbstractIdleService.java:54)
+	at com.google.common.util.concurrent.Callables$3.run(Callables.java:93)
+	at java.lang.Thread.run(Unknown Source)
