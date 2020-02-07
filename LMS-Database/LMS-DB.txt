@@ -1,0 +1,19 @@
+show databases;
+
+create database LMS;
+
+use LMS;
+
+create table employee (
+id int unsigned primary key auto_increment,
+name varchar(40) not null,
+dept varchar(40) not null,
+leaveBalance int unsigned not null
+);
+
+insert into employee (name, dept, leaveBalance) values('Aman', 'Finance', 20);
+insert into employee (name, dept, leaveBalance) values('Sumit', 'HR', 20);
+insert into employee (name, dept, leaveBalance) values('Akash', 'Payroll', 20);
+
+
+select * from employee;
