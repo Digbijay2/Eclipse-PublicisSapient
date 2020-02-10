@@ -1,0 +1,118 @@
+show databases;
+drop database qe_users;
+create database qe_users;
+
+use qe_users;
+
+create table blog(
+	id int unsigned primary key auto_increment,
+    blog_url varchar(40) not null unique,
+    created_date date not null
+);
+
+create table post(
+	id int unsigned primary key auto_increment,
+    title varchar(100) not null,
+    created_date date not null,
+    updated_date date not null,
+    blog_id int unsigned not null,
+    foreign key(blog_id) references blog(id)
+);
+
+create table comments(
+	id int unsigned primary key auto_increment,
+    comment_text varchar(150) not null,
+    created_date date not null,
+    post_id int unsigned not null,
+    foreign key(post_id) references post(id)
+);
+
+create table tag(
+	id int unsigned primary key auto_increment,
+    name varchar(40) unique not null
+);
+
+create table post_tag(
+	post_id int unsigned,
+    tag_id int unsigned,
+    foreign key(post_id) references post(id),
+    foreign key(tag_id) references tag(id),
+    primary key(post_id, tag_id)
+);
+
+describe blog;
+describe post;
+describe comments;
+describe tag;
+describe post_tag;
+
+show create table blog;
+
+insert into blog (blog_url, created_date)
+ values 
+		("javatpoint.com", "2020-02-01"),
+        ("java2s.com", "2020-03-01"), 
+        ("geeksforgeeks.com", "2020-04-09"),
+        ("guru99.com", "2020-05-08");
+        
+select * from blog;
+
+show create table post;
+
+insert into post (title, created_date, updated_date, blog_id)
+ values 
+		("java", "2020-09-10","2020-12-02", 3),
+        ("css", "2020-09-08", "2020-12-03", 1), 
+        ("python", "2020-08-01", "2020-09-01", 2),
+        ("c++", "2020-09-05", "2020-12-01", 1);
+
+select * from post;
+
+insert into comments (comment_text, created_date, post_id)
+ values 
+		("Love to learn java", "2020-02-01", 1),
+        ("Love to learn c++", "2020-12-04", 4), 
+        ("hate to learn java", "2020-06-10", 1),
+        ("python is the best", "2020-03-08", 3);
+        
+select * from comments;
+
+insert into tag (name)
+ values 
+		("crazy"), ("hate"), ("program"), ("best"), ("love"), ("coding"), ("code");
+
+select * from tag;
+
+insert into post_tag (post_id, tag_id)
+ values 
+		(1,4), (2,1), (4,5), (2,2), (3,7), (4,6), (1,1);
+        
+select * from post_tag;
+
+create table employee1 (
+	eid int unsigned primary key auto_increment,
+    ename varchar(10) not null,
+    esalary int not null,
+    eemail varchar(100) not null,
+    managerid  int unsigned,
+    foreign key(managerid) references employee(eid)
+);
+
+show create table employee1;
+select * from employee1;
+insert into employee1 (ename, esalary, eemail)
+	values
+		-- ("amit", 24000, "amit@gmail.com",null),
+		("rahul", 54000, "rahul@gmail.com");
+		-- ("sameera", 40000, "sameera@gmail.com", 1);
+        
+select * from blog;      
+select * from post;  
+
+select blog_id, blog_url as url, title as post_title
+from blog
+left outer join post on blog.id = post.blog_id;
+
+
+
+        
